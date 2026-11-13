@@ -1,0 +1,8 @@
+FROM node:22-slim
+WORKDIR /app
+COPY package.json server.js ./
+COPY public ./public
+ENV NODE_ENV=production PORT=8080 DATA_FILE=/data/reports.json
+USER node
+EXPOSE 8080
+CMD ["node", "server.js"]
